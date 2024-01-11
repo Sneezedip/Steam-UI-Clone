@@ -1,0 +1,50 @@
+{
+    "INFO": "DO NOT MODIFY ANYTHING IN THIS FILE AS IT CAN CORRUPT THE MAIN PROGRAM.",
+    "translations": {
+        "portuguese": [
+        {
+            "bar":[
+                {
+                    "id": 1,
+                    "text": "Ver"
+                },
+                {
+                    "id": 2,
+                    "text": "Amigos"
+                },
+                {
+                    "id": 3,
+                    "text": "Jogos"
+                },
+                {
+                    "id": 4,
+                    "text": "Ajuda"
+                }
+            ]
+        }
+        ],
+        "english": [
+            {
+                "bar":[
+                    {
+                        "id": 1,
+                        "text": "See"
+                    },
+                    {
+                        "id": 2,
+                        "text": "Friends"
+                    },
+                    {
+                        "id": 3,
+                        "text": "Games"
+                    },
+                    {
+                        "id": 4,
+                        "text": "Help"
+                    }
+                ]
+            }
+        ]
+    }
+}
+
