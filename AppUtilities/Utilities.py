@@ -1,11 +1,14 @@
 from ctypes import windll
 import ctypes
+import tkinter
 import requests
 from PIL import Image
 from io import BytesIO
 import tkinter.messagebox as mbox
 import json
 import customtkinter
+from tkinter.font import Font
+from tkinter import Tk, Label
 class Utilities():
     def BottomIcon(root,hasstyle):
         GWL_EXSTYLE=-20
@@ -45,14 +48,25 @@ class Utilities():
 
         match section:
             case "bar": return next(item["text"] for item in bar_translations if item["id"] == id)
+
+    def Positions(id):
+        with open("pos.json" , "r") as file:
+            json_data = file.read()
+        data = json.loads(json_data)
+        positions = data["positions"][Utilities.Info("language")]
+        pos = positions[0]["tabhover"]
+
+        tabhover.configure(width = next(item["width"] for item in pos if item["id"]==id))
+        tabhover.place(x = next(item["place_x"] for item in pos if item["id"]==id),y=60)
+
     def LoadIcons(root):
         steamicon = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/external-Steam-social-media-those-icons-lineal-color-those-icons.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=9,y=9)
         closebutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://cdn-icons-png.flaticon.com/512/10728/10728089.png"), size=(18, 18)),text="",bg_color="#171d25")
         fullscreenbutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/external-expand-arrows-dreamstale-lineal-dreamstale-6.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=945,y=5)
         minimizebutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/ios-filled/50/737373/minus-math.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=910,y=5)
 
-        leftarrow = customtkinter.CTkLabel(root,height=30,width=30,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/back.png"), size=(25, 25)),text="",bg_color="#171d25").place(x=6,y=35)
-        rightarrow = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png"), size=(25, 25)),text="",bg_color="#171d25").place(x=20,y=35)
+        leftarrow = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png").transpose(Image.FLIP_LEFT_RIGHT), size=(25, 25)),text="",bg_color="#171d25").place(x=10,y=35)
+        rightarrow = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png"), size=(25, 25)),text="",bg_color="#171d25").place(x=40,y=35)
         #user
         userphoto = customtkinter.CTkLabel(root,height=25,width=25,image=customtkinter.CTkImage(Utilities.GetImages("https://th.bing.com/th/id/OIP.MaDrjtmPQGzKiLHrHEPfFAHaHa?rs=1&pid=ImgDetMain"), size=(25, 25)),text="",bg_color="#171d25").place(x=745,y=5)
         userbackground = customtkinter.CTkFrame(root,height=25,width=120,bg_color="#272d37",fg_color="#272d37").place(x=770,y=5)
@@ -61,16 +75,25 @@ class Utilities():
         #user
         closebutton.bind("<ButtonPress-1>",exit)
         closebutton.place(x=975,y=5)
-    def TopBarTexts(root):
+    def TopBarTexts(root,storeopen=False,libraryopen=False,communityopen=False,userprofileopen=False):
+        global tabhover
+        bold_font = Font(family="Motiva Sans", size=14, weight="bold")
+        #top bar#
         steamText = customtkinter.CTkLabel(root,text="Steam",font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
-        seeText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",1),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
+        viewText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",1),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
         friendsText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",2),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
         gamesText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",3),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
         helpText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",4),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
+        #top bar#
+        store = tkinter.Label(root, text=Utilities.Translations("bar",5).upper(), font=bold_font, bg="#171d25", fg="white" if not storeopen else "#1891e7")
+        library = tkinter.Label(root,text=Utilities.Translations("bar",6).upper(),font=bold_font,bg="#171d25",fg="white" if not libraryopen else "#1891e7")
+        community = tkinter.Label(root,text=Utilities.Translations("bar",7).upper(),font=bold_font,bg="#171d25",fg="white" if not communityopen else "#1891e7")
+        userprofile = tkinter.Label(root,text=Utilities.Info("username").upper(),font=bold_font,bg="#171d25",fg="white" if not userprofileopen else "#1891e7")
 
+        tabhover = customtkinter.CTkFrame(root,height=4,width=67,bg_color="#272d37",fg_color="#1891e7")
         #CONFIG HOVERING COLORS
-        seeText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
-        seeText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
+        viewText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
+        viewText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
         friendsText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
         friendsText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
         gamesText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
@@ -80,8 +103,23 @@ class Utilities():
         #CONFIG HOVERING COLORS
 
         steamText.place(x=35,y=4)
-        seeText.place(x=100,y=4)
+        viewText.place(x=100,y=4)
         friendsText.place(x=140,y=4)
         gamesText.place(x=200,y=4)
         helpText.place(x=255,y=4)
+        store.place(x=90,y=33)
+        library.place(x=160,y=33) if Utilities.Info("language") == "portuguese" else library.place(x=185,y=33)
+        community.place(x=295,y=33)
+        userprofile.place(x=445,y=33)
+        
+        #selected hover#
+        if storeopen:
+            Utilities.Positions(1)
+        elif libraryopen:
+            Utilities.Positions(2)
+        elif communityopen:
+            Utilities.Positions(3)
+        elif userprofileopen:
+            tabhover.destroy()
+        #selected hover#
         

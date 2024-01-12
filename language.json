@@ -19,6 +19,18 @@
                 {
                     "id": 4,
                     "text": "Ajuda"
+                },
+                {
+                    "id": 5,
+                    "text": "Loja"
+                },
+                {
+                    "id": 6,
+                    "text": "Biblioteca"
+                },
+                {
+                    "id": 7,
+                    "text": "Comunidade"
                 }
             ]
         }
@@ -41,6 +53,18 @@
                     {
                         "id": 4,
                         "text": "Help"
+                    },
+                    {
+                        "id": 5,
+                        "text": "Store"
+                    },
+                    {
+                        "id": 6,
+                        "text": "Library"
+                    },
+                    {
+                        "id": 7,
+                        "text": "Community"
                     }
                 ]
             }

@@ -1,4 +1,15 @@
 # Steam-UI-Remaster
 ## Remaster of the Steam UI using customTkinter
 
+# Version 1.0.2
+ -  Added new buttons (Store, Library, Community and User Profile)
+ -  Added selected colors for the tab selected (can't select tab by clicking it yet, only in the program)
+ -  Added hover color in the top buttons
+ -  Added back and forward arrows
+ -  Code organization for different positions for each translations (pos.json)
+ -  New options in app.cfg
+
+# Version 1.0.1
+ - Created top bar and translated everything (portuguese and english)
+
 **Please note: This project is not intended for commercial use. It is provided for educational and personal use only.**

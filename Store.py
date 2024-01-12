@@ -17,7 +17,7 @@ class Store():
 
         background.place(x=0,y=0)
         title_bar.place(x=0,y=0)
-        Utilities.TopBarTexts(self.root)  
+        Utilities.TopBarTexts(self.root,storeopen=True)  
     def __init__(self):
         self.hasstyle = False
         self.root = customtkinter.CTk()
