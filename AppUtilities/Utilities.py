@@ -50,6 +50,9 @@ class Utilities():
         closebutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://cdn-icons-png.flaticon.com/512/10728/10728089.png"), size=(18, 18)),text="",bg_color="#171d25")
         fullscreenbutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/external-expand-arrows-dreamstale-lineal-dreamstale-6.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=945,y=5)
         minimizebutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/ios-filled/50/737373/minus-math.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=910,y=5)
+
+        leftarrow = customtkinter.CTkLabel(root,height=30,width=30,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/back.png"), size=(25, 25)),text="",bg_color="#171d25").place(x=6,y=35)
+        rightarrow = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png"), size=(25, 25)),text="",bg_color="#171d25").place(x=20,y=35)
         #user
         userphoto = customtkinter.CTkLabel(root,height=25,width=25,image=customtkinter.CTkImage(Utilities.GetImages("https://th.bing.com/th/id/OIP.MaDrjtmPQGzKiLHrHEPfFAHaHa?rs=1&pid=ImgDetMain"), size=(25, 25)),text="",bg_color="#171d25").place(x=745,y=5)
         userbackground = customtkinter.CTkFrame(root,height=25,width=120,bg_color="#272d37",fg_color="#272d37").place(x=770,y=5)
@@ -66,8 +69,6 @@ class Utilities():
         helpText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",4),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
 
         #CONFIG HOVERING COLORS
-        steamText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
-        steamText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
         seeText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
         seeText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
         friendsText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
