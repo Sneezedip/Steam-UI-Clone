@@ -1,5 +1,6 @@
 import customtkinter
 from AppUtilities.Utilities import Utilities
+from AppGraphics.Graphics import Graphics
 class Store():
     def StartDrag(self,event):
             global x,y
@@ -17,7 +18,7 @@ class Store():
 
         background.place(x=0,y=0)
         title_bar.place(x=0,y=0)
-        Utilities.TopBarTexts(self.root,storeopen=True)  
+        Graphics.TopBarTexts(self.root,libraryopen=True)  
     def __init__(self):
         self.hasstyle = False
         self.root = customtkinter.CTk()
@@ -28,7 +29,7 @@ class Store():
         self.root.title('Steam')
         self.root.update_idletasks()
         self.LoadTopBar()
-        Utilities.LoadIcons(self.root)
+        Graphics.LoadIcons(self.root)
         Utilities.BottomIcon(self.root,self.hasstyle)
         self.root.mainloop()
 
