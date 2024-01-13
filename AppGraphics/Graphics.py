@@ -46,30 +46,8 @@ class Graphics():
         helpText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
         #CONFIG HOVERING COLORS
 
-        #CONFIG BUTTONS#
-        # store.bind("<ButtonPress-1>",Windows)
-        # library.bind("<ButtonPress-1>",ChangeUtility.ChangeWindow(root,2))
-        # community.bind("<ButtonPress-1>",Community(root))
-        # userprofile.bind("<ButtonPress-1>",ChangeUtility.ChangeWindow(root,4))
-        #CONFIG BUTTONS#
-
         steamText.place(x=35,y=4)
         viewText.place(x=100,y=4)
         friendsText.place(x=140,y=4)
         gamesText.place(x=200,y=4)
         helpText.place(x=255,y=4)
-        # store.place(x=90,y=33)
-        # library.place(x=160,y=33) if Utilities.Info("language") == "portuguese" else library.place(x=185,y=33)
-        # community.place(x=295,y=33)
-        # userprofile.place(x=445,y=33)
-        
-        #selected hover#
-        # if storeopen:
-        #     Utilities.Positions(1,tabhover)
-        # elif libraryopen:
-        #     Utilities.Positions(2,tabhover)
-        # elif communityopen:
-        #     Utilities.Positions(3,tabhover)
-        # elif userprofileopen:
-        #     tabhover.destroy()
-        #selected hover#

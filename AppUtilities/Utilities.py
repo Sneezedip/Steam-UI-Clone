@@ -44,7 +44,7 @@ class Utilities():
         bar_translations = translation_language[0]["bar"]
 
         match section:
-            case "bar": return next(item["text"] for item in bar_translations if item["id"] == id)
+            case "bar": return next(item["text"] for item in bar_translations if item["id"] == id) 
     def Positions(id,tabhover):
         with open("AppConfig/pos.json" , "r") as file:
             json_data = file.read()
@@ -53,4 +53,4 @@ class Utilities():
         pos = positions[0]["tabhover"]
 
         tabhover.configure(width = next(item["width"] for item in pos if item["id"]==id))
-        tabhover.place(x = next(item["place_x"] for item in pos if item["id"]==id),y=60)        
+        tabhover.place(x = next(item["place_x"] for item in pos if item["id"]==id),y=60)  
