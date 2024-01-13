@@ -30,14 +30,14 @@ class Utilities():
             mbox.showerror(title="Steam",message="Failed to retrieve data. Contact .sneezedip")
             exit()
     def Info(info):
-        with open("app.cfg","r") as file:
+        with open("AppConfig/app.cfg","r") as file:
             lines = file.readlines()
             for line in lines:
                 separate = line.split("=")
                 if len(separate) == 2 and separate[0].strip() == info:
                     return separate[1].strip()
     def Translations(section,id):
-        with open("language.json" , "r") as file:
+        with open("AppConfig/language.json" , "r") as file:
             json_data = file.read()
         data = json.loads(json_data)
         translation_language = data["translations"][Utilities.Info("language")]
@@ -45,14 +45,12 @@ class Utilities():
 
         match section:
             case "bar": return next(item["text"] for item in bar_translations if item["id"] == id)
-
     def Positions(id,tabhover):
-        with open("pos.json" , "r") as file:
+        with open("AppConfig/pos.json" , "r") as file:
             json_data = file.read()
         data = json.loads(json_data)
         positions = data["positions"][Utilities.Info("language")]
         pos = positions[0]["tabhover"]
 
         tabhover.configure(width = next(item["width"] for item in pos if item["id"]==id))
-        tabhover.place(x = next(item["place_x"] for item in pos if item["id"]==id),y=60)
-        
+        tabhover.place(x = next(item["place_x"] for item in pos if item["id"]==id),y=60)        

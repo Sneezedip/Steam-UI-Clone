@@ -1,0 +1,74 @@
+{
+    "INFO": "DO NOT MODIFY ANYTHING IN THIS FILE AS IT CAN CORRUPT THE MAIN PROGRAM.",
+    "translations": {
+        "portuguese": [
+        {
+            "bar":[
+                {
+                    "id": 1,
+                    "text": "Ver"
+                },
+                {
+                    "id": 2,
+                    "text": "Amigos"
+                },
+                {
+                    "id": 3,
+                    "text": "Jogos"
+                },
+                {
+                    "id": 4,
+                    "text": "Ajuda"
+                },
+                {
+                    "id": 5,
+                    "text": "Loja"
+                },
+                {
+                    "id": 6,
+                    "text": "Biblioteca"
+                },
+                {
+                    "id": 7,
+                    "text": "Comunidade"
+                }
+            ]
+        }
+        ],
+        "english": [
+            {
+                "bar":[
+                    {
+                        "id": 1,
+                        "text": "View"
+                    },
+                    {
+                        "id": 2,
+                        "text": "Friends"
+                    },
+                    {
+                        "id": 3,
+                        "text": "Games"
+                    },
+                    {
+                        "id": 4,
+                        "text": "Help"
+                    },
+                    {
+                        "id": 5,
+                        "text": "Store"
+                    },
+                    {
+                        "id": 6,
+                        "text": "Library"
+                    },
+                    {
+                        "id": 7,
+                        "text": "Community"
+                    }
+                ]
+            }
+        ]
+    }
+}
+

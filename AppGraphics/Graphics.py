@@ -5,6 +5,7 @@ from PIL import Image
 import tkinter
 from AppUtilities.Utilities import Utilities
 
+
 class Graphics():
     def LoadIcons(root):
         steamicon = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/external-Steam-social-media-those-icons-lineal-color-those-icons.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=9,y=9)
@@ -22,9 +23,8 @@ class Graphics():
         #user
         closebutton.bind("<ButtonPress-1>",exit)
         closebutton.place(x=975,y=5)
-    def TopBarTexts(root,storeopen=False,libraryopen=False,communityopen=False,userprofileopen=False):
+    def TopBarTexts(root):
         global tabhover
-        bold_font = Font(family="Motiva Sans", size=14, weight="bold")
         #top bar#
         steamText = customtkinter.CTkLabel(root,text="Steam",font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
         viewText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",1),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
@@ -32,10 +32,7 @@ class Graphics():
         gamesText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",3),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
         helpText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",4),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
         #top bar#
-        store = tkinter.Label(root, text=Utilities.Translations("bar",5).upper(), font=bold_font, bg="#171d25", fg="white" if not storeopen else "#1891e7")
-        library = tkinter.Label(root,text=Utilities.Translations("bar",6).upper(),font=bold_font,bg="#171d25",fg="white" if not libraryopen else "#1891e7")
-        community = tkinter.Label(root,text=Utilities.Translations("bar",7).upper(),font=bold_font,bg="#171d25",fg="white" if not communityopen else "#1891e7")
-        userprofile = tkinter.Label(root,text=Utilities.Info("username").upper(),font=bold_font,bg="#171d25",fg="white" if not userprofileopen else "#1891e7")
+
 
         tabhover = customtkinter.CTkFrame(root,height=4,width=67,bg_color="#272d37",fg_color="#1891e7")
         #CONFIG HOVERING COLORS
@@ -49,23 +46,30 @@ class Graphics():
         helpText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
         #CONFIG HOVERING COLORS
 
+        #CONFIG BUTTONS#
+        # store.bind("<ButtonPress-1>",Windows)
+        # library.bind("<ButtonPress-1>",ChangeUtility.ChangeWindow(root,2))
+        # community.bind("<ButtonPress-1>",Community(root))
+        # userprofile.bind("<ButtonPress-1>",ChangeUtility.ChangeWindow(root,4))
+        #CONFIG BUTTONS#
+
         steamText.place(x=35,y=4)
         viewText.place(x=100,y=4)
         friendsText.place(x=140,y=4)
         gamesText.place(x=200,y=4)
         helpText.place(x=255,y=4)
-        store.place(x=90,y=33)
-        library.place(x=160,y=33) if Utilities.Info("language") == "portuguese" else library.place(x=185,y=33)
-        community.place(x=295,y=33)
-        userprofile.place(x=445,y=33)
+        # store.place(x=90,y=33)
+        # library.place(x=160,y=33) if Utilities.Info("language") == "portuguese" else library.place(x=185,y=33)
+        # community.place(x=295,y=33)
+        # userprofile.place(x=445,y=33)
         
         #selected hover#
-        if storeopen:
-            Utilities.Positions(1,tabhover)
-        elif libraryopen:
-            Utilities.Positions(2,tabhover)
-        elif communityopen:
-            Utilities.Positions(3,tabhover)
-        elif userprofileopen:
-            tabhover.destroy()
+        # if storeopen:
+        #     Utilities.Positions(1,tabhover)
+        # elif libraryopen:
+        #     Utilities.Positions(2,tabhover)
+        # elif communityopen:
+        #     Utilities.Positions(3,tabhover)
+        # elif userprofileopen:
+        #     tabhover.destroy()
         #selected hover#
