@@ -2,6 +2,8 @@
 ## Remaster of the Steam UI using customTkinter
 
 # Version 1.1.0
+ - Different windows cleaning working
+# Version 1.1.0
  - Window change working! (no image yet)
  - Code optimization
  - Hover color fixed when choosing your user profile tab
