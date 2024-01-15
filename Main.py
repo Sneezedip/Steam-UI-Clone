@@ -1,3 +1,4 @@
+from logging import root
 from AppWindows.Community import Community
 from AppWindows.Library import Library
 from AppWindows.Store import Store
@@ -12,6 +13,7 @@ import tkinter
 from AppUtilities.Utilities import Utilities
 import customtkinter
 import json
+from AppUtilities.WidgetCount import UsedWidgets
 class Main():
     class Auto():
         Iter = 0
@@ -20,7 +22,7 @@ class Main():
             self.storestat = Store()
             self.librarystat = Library()
             self.communitystat = Community()
-            self.userprofilestat = UserProfile()
+            self.userprofilestat = UserProfile(self.root)
             self.background = customtkinter.CTkFrame(self.root,height=1000,width=1000,bg_color="#171d25",fg_color="#171d25")
             self.background.place(x=0,y=0)
         Main.Auto.Iter += 1
@@ -39,10 +41,14 @@ class Main():
         elif self.userprofilestat.GetStatus():
             self.tabhover.place_forget()
     def CheckEntry(self,event,obj):
+        if len(UsedWidgets.current) >= 1:
+            for widgets in UsedWidgets.current:
+                widgets.place_forget()
         self.storestat = Store()
         self.librarystat = Library()
         self.communitystat = Community()
-        self.userprofilestat = UserProfile()
+        self.userprofilestat = UserProfile(self.root)
+        self.userprofilestat.ClearScreen()
         if obj == "Store":
             self.storestat.StartFrame(self.root,self.background)
         elif obj == "Library":
@@ -77,7 +83,7 @@ class Main():
 
         title_bar.place(x=0,y=0)
 
-        self.store.bind("<ButtonPress-1>",lambda event, obj="Store": self.CheckEntry(event, obj))
+        self.store.bind("<ButtonPress-1>",lambda event,obj="Store": self.CheckEntry(event, obj))
         self.library.bind("<ButtonPress-1>",lambda event, obj="Library": self.CheckEntry(event, obj))
         self.community.bind("<ButtonPress-1>",lambda event, obj="Community": self.CheckEntry(event, obj))
         self.userprofile.bind("<ButtonPress-1>",lambda event, obj="UserProfile": self.CheckEntry(event, obj))
