@@ -14,6 +14,7 @@ from AppUtilities.Utilities import Utilities
 import customtkinter
 import json
 from AppUtilities.WidgetCount import UsedWidgets
+from AppGraphics.OnlineAlocated import Images
 class Main():
     class Auto():
         Iter = 0
@@ -24,8 +25,10 @@ class Main():
             self.communitystat = Community()
             self.userprofilestat = UserProfile(self.root)
             self.background = customtkinter.CTkFrame(self.root,height=1000,width=1000,bg_color="#171d25",fg_color="#171d25")
-            self.background.place(x=0,y=0)
+            self.background.place(x=0,y=0) 
+            Images()     
         Main.Auto.Iter += 1
+
     def ClearColors(self):
         self.store.configure(fg="white" if not self.storestat.GetStatus() else "#1891e7")
         self.library.configure(fg="white" if not self.librarystat.GetStatus() else "#1891e7")
