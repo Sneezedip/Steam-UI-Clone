@@ -1,3 +1,4 @@
+from ast import Load
 from logging import root
 from AppWindows.Community import Community
 from AppWindows.Library import Library
@@ -15,6 +16,7 @@ import customtkinter
 import json
 from AppUtilities.WidgetCount import UsedWidgets
 from AppGraphics.OnlineAlocated import Images
+from AppWindows.LoadingScreen import Loading
 class Main():
     class Auto():
         Iter = 0
@@ -101,7 +103,6 @@ class Main():
         self.ClearColors()
 
     def __init__(self):
-
         self.hasstyle = False
 
         self.root = customtkinter.CTk()
