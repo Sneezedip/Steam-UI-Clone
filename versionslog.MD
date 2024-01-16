@@ -4,6 +4,7 @@
 
 # Version 1.1.1
  - Different windows cleaning working
+ - Fixed Lag when changing to user profile
 
 # Version 1.1.0
  - Window change working! (no image yet)
