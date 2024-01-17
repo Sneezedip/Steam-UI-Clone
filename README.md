@@ -6,4 +6,6 @@
  - New part of setting the country ! (only US avaiable yet)
  - Fixed when some parts didn't disappear when changing windows
 
+### for more info check *versionslog.md*
+
 **Please note: This project is not intended for commercial use. It is provided for educational and personal use only.**
