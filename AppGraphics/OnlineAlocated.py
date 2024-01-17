@@ -14,13 +14,22 @@ class Images():
 
 
     #COUNTRIES
-    US = Utilities.GetImages("https://img.icons8.com/office/16/usa.png")
-    PT = Utilities.GetImages("https://img.icons8.com/office/16/portugal.png") 
-    BR = Utilities.GetImages("https://img.icons8.com/office/16/brazil.png") 
-    CA = Utilities.GetImages("https://img.icons8.com/office/16/canada.png") 
-    match (Utilities.Info("country")):
-        case "unitedstates": USEDFLAG = US;LABEL = "United States"
-        case "portugal": USEDFLAG = PT;LABEL= "Portugal"
-        case "brazil": USEDFLAG = BR;LABEL= "Brazil"
-        case "canada": USEDFLAG = CA;LABEL= "Canada"
+    match (Utilities.Info("country").lower()):
+        case "unitedstates": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/usa.png");LABEL = "United States"
+        case "portugal": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/portugal.png");LABEL= "Portugal"
+        case "brazil": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/brazil.png");LABEL= "Brazil"
+        case "canada": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/canada.png");LABEL= "Canada"
+        case "norway": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/norway.png");LABEL = "Norway"
+        case "sweden": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/sweden.png");LABEL= "Sweden"
+        case "finland": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/finland.png");LABEL= "Finland"
+        case "germany": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/germany.png");LABEL= "Germany"
+        case "france": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/france.png");LABEL = "France"
+        case "croatia": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/croatia.png");LABEL= "Croatia"
+        case "albania": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/albania.png");LABEL= "Albania"
+        case "malta": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/malta.png");LABEL= "Malta"
+        case "china": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/china.png");LABEL = "China"
+        case "japan": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/japan.png");LABEL= "Japan"
+        case "ukraine": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/ukraine.png");LABEL= "Ukraine"
+        case "belgium": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/belgium.png");LABEL = "Belgium"
+        case "jamaica": USEDFLAG = Utilities.GetImages("https://img.icons8.com/office/16/jamaica.png");LABEL= "Jamaica"
     

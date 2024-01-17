@@ -1,5 +1,3 @@
-from ast import Load
-from logging import root
 from AppWindows.Community import Community
 from AppWindows.Library import Library
 from AppWindows.Store import Store
@@ -8,14 +6,12 @@ from AppGraphics.Graphics import Graphics
 from AppUtilities.Utilities import Utilities
 import customtkinter
 from tkinter.font import Font
-from tkinter import Tk, Label
-from PIL import Image
 import tkinter
 from AppUtilities.Utilities import Utilities
 import customtkinter
-import json
 from AppUtilities.WidgetCount import UsedWidgets
 from AppGraphics.OnlineAlocated import Images
+from AppWindows.ProfileEditor import ProfileEditor
 class Main():
     class Auto():
         Iter = 0
@@ -25,6 +21,7 @@ class Main():
             self.librarystat = Library()
             self.communitystat = Community()
             self.userprofilestat = UserProfile(self.root)
+            self.editprofilestat = ProfileEditor(self.root)
             self.background = customtkinter.CTkFrame(self.root,height=1000,width=1000,bg_color="#171d25",fg_color="#171d25")
             self.background.place(x=0,y=0) 
             Images()     
@@ -52,7 +49,7 @@ class Main():
         self.librarystat = Library()
         self.communitystat = Community()
         self.userprofilestat = UserProfile(self.root)
-        self.userprofilestat.ClearScreen()
+        self.editprofilestat = ProfileEditor(self.root)
         if obj == "Store":
             self.storestat.StartFrame(self.root,self.background)
         elif obj == "Library":
@@ -61,6 +58,7 @@ class Main():
             self.communitystat.StartFrame(self.root,self.background)
         elif obj == "UserProfile":
             self.userprofilestat.StartFrame(self.root,self.background)
+        elif self.editprofilestat.GetStatus():
         self.ClearColors()
     def StartDrag(self,event):
             global x,y
@@ -103,7 +101,6 @@ class Main():
 
     def __init__(self):
         self.hasstyle = False
-
         self.root = customtkinter.CTk()
         self.FirstCheck()
 
@@ -111,6 +108,7 @@ class Main():
         self.root.title('Steam')
         self.root.overrideredirect(True)
         self.LoadTopBar()
+        Utilities.BottomIcon(self.root,self.hasstyle)
         Graphics.TopBarTexts(self.root)
         Graphics.LoadIcons(self.root)
         Utilities.BottomIcon(self.root,self.hasstyle)
