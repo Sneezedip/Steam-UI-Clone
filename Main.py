@@ -16,7 +16,6 @@ import customtkinter
 import json
 from AppUtilities.WidgetCount import UsedWidgets
 from AppGraphics.OnlineAlocated import Images
-from AppWindows.LoadingScreen import Loading
 class Main():
     class Auto():
         Iter = 0

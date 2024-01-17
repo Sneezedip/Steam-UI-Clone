@@ -51,3 +51,23 @@ class Graphics():
         friendsText.place(x=140,y=4)
         gamesText.place(x=200,y=4)
         helpText.place(x=255,y=4)
+    def GetLevelColor():
+        level = int(Utilities.Info("level"))
+        if level >= 0 and level <= 9:
+            return "grey"
+        elif level >= 10 and level <= 19:
+            return "red"
+        elif level >= 20 and level <= 29:
+            return "orange"
+        elif level >= 30 and level <= 39:
+            return "yellow"
+        elif level >= 40 and level <= 49:
+            return "green"
+        elif level >= 50 and level <= 59:
+            return "blue"
+        elif level >= 60 and level <= 69:
+            return "purple"
+        else:
+            return "grey"
+        
+        

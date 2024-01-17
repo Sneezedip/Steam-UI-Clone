@@ -42,9 +42,10 @@ class Utilities():
         data = json.loads(json_data)
         translation_language = data["translations"][Utilities.Info("language")]
         bar_translations = translation_language[0]["bar"]
-
+        userprofile_translations = translation_language[0]["userprofile"]
         match section:
             case "bar": return next(item["text"] for item in bar_translations if item["id"] == id) 
+            case "userprofile": return next(item["text"] for item in userprofile_translations if item["id"] == id) 
     def Positions(id,tabhover):
         with open("AppConfig/pos.json" , "r") as file:
             json_data = file.read()

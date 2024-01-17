@@ -13,9 +13,11 @@ class Loading():
         self.loadingbar.place(x=170,y=150)  
         self.loadingbar.set(0)
         self.loadingbar.start()
-        if self.loadingbar.get() == 100:
-            self.ClearScreen()
+        from Main import Main
+        self.main = Main()
+        self.root.after(7000,self.main)
         self.root.mainloop()
 
     def ClearScreen(self):
-        self.root.destroy()
+        pass
+
