@@ -31,16 +31,16 @@
                 {
                     "id": 7,
                     "text": "Comunidade"
-                },
-                {
-                    "id": 8,
-                    "text": "Nivel"
                 }
             ],
             "userprofile":[
                 {
                     "id": 1,
-                    "text": "Level"
+                    "text": "Nivel"
+                },
+                {
+                    "id": 2,
+                    "text": "Editar Perfil"
                 }
             ]
         }
@@ -81,6 +81,10 @@
                     {
                         "id": 1,
                         "text": "Level"
+                    },
+                    {
+                        "id": 2,
+                        "text": "Edit Profile"
                     }
                 ]
             }

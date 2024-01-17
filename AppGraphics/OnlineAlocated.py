@@ -11,7 +11,16 @@ class Images():
     leftarrow = Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png")
     rightarrow = Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png")
     userphoto = Utilities.GetImages("https://th.bing.com/th/id/OIP.MaDrjtmPQGzKiLHrHEPfFAHaHa?rs=1&pid=ImgDetMain") 
-    US = Utilities.GetImages("https://img.icons8.com/office/16/usa.png") 
+
+
+    #COUNTRIES
+    US = Utilities.GetImages("https://img.icons8.com/office/16/usa.png")
+    PT = Utilities.GetImages("https://img.icons8.com/office/16/portugal.png") 
+    BR = Utilities.GetImages("https://img.icons8.com/office/16/brazil.png") 
+    CA = Utilities.GetImages("https://img.icons8.com/office/16/canada.png") 
     match (Utilities.Info("country")):
         case "unitedstates": USEDFLAG = US;LABEL = "United States"
+        case "portugal": USEDFLAG = PT;LABEL= "Portugal"
+        case "brazil": USEDFLAG = BR;LABEL= "Brazil"
+        case "canada": USEDFLAG = CA;LABEL= "Canada"
     
