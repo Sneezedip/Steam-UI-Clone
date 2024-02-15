@@ -5,7 +5,6 @@ from PIL import Image
 from io import BytesIO
 import tkinter.messagebox as mbox
 import json
-
 class Utilities():
     def BottomIcon(root,hasstyle):
         GWL_EXSTYLE=-20
@@ -55,3 +54,4 @@ class Utilities():
 
         tabhover.configure(width = next(item["width"] for item in pos if item["id"]==id))
         tabhover.place(x = next(item["place_x"] for item in pos if item["id"]==id),y=60)  
+    

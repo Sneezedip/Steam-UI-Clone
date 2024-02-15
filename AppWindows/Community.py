@@ -1,5 +1,3 @@
-import customtkinter
-from AppGraphics.Graphics import Graphics
 class Community():
     def StartFrame(self,root,bg):
         bg.configure(fg_color="#171d25")

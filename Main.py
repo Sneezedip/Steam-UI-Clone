@@ -41,7 +41,7 @@ class Main():
             Utilities.Positions(3,self.tabhover)
         elif self.userprofilestat.GetStatus():
             self.tabhover.place_forget()
-    def CheckEntry(self,event,obj):
+    def CheckEntry(self,obj,event=None):
         if len(UsedWidgets.current) >= 1:
             for widgets in UsedWidgets.current:
                 widgets.place_forget()
@@ -57,8 +57,9 @@ class Main():
         elif obj == "Community":
             self.communitystat.StartFrame(self.root,self.background)
         elif obj == "UserProfile":
-            self.userprofilestat.StartFrame(self.root,self.background)
+            self.userprofilestat.StartFrame(self.root)
         elif self.editprofilestat.GetStatus():
+            pass
         self.ClearColors()
     def StartDrag(self,event):
             global x,y
@@ -85,10 +86,10 @@ class Main():
 
         title_bar.place(x=0,y=0)
 
-        self.store.bind("<ButtonPress-1>",lambda event,obj="Store": self.CheckEntry(event, obj))
-        self.library.bind("<ButtonPress-1>",lambda event, obj="Library": self.CheckEntry(event, obj))
-        self.community.bind("<ButtonPress-1>",lambda event, obj="Community": self.CheckEntry(event, obj))
-        self.userprofile.bind("<ButtonPress-1>",lambda event, obj="UserProfile": self.CheckEntry(event, obj))
+        self.store.bind("<ButtonPress-1>",lambda event,obj="Store": self.CheckEntry(obj))
+        self.library.bind("<ButtonPress-1>",lambda event, obj="Library": self.CheckEntry(obj))
+        self.community.bind("<ButtonPress-1>",lambda event, obj="Community": self.CheckEntry(obj))
+        self.userprofile.bind("<ButtonPress-1>",lambda event, obj="UserProfile": self.CheckEntry(obj))
 
         self.store.place(x=90,y=33)
         self.library.place(x=160,y=33) if Utilities.Info("language") == "portuguese" else self.library.place(x=185,y=33)

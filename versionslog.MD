@@ -1,3 +1,9 @@
+# Version 1.1.5
+ - Profile Editor Working! (only able to edit username)
+ - Removed unused imports
+ - Removed unused functions
+ - Organized Functions
+ 
 # Version 1.1.4
  - New Flags!
  - Added an edit profile button (Not working yet)

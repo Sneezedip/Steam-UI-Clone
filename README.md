@@ -1,10 +1,11 @@
 # Steam-UI-Remaster
 ## Remaster of the Steam UI using customTkinter
 
-# Version 1.1.4 (current)
- - New Flags!
- - Added an edit profile button (Not working yet)
- - Fixed translation errors.
+# Version 1.1.5
+ - Profile Editor Working! (only able to edit username)
+ - Removed unused imports
+ - Removed unused functions
+ - Organized Functions
 
 ### for more info check *versionslog.md*
 

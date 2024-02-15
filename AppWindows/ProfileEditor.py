@@ -1,11 +1,5 @@
-from cgitb import text
-import tkinter
-from tkinter import font
-from turtle import bgcolor
 import customtkinter
 from tkinter.font import Font
-from AppGraphics.Graphics import Graphics
-from AppUtilities.Utilities import Utilities
 from AppUtilities.WidgetCount import UsedWidgets
 from AppGraphics.OnlineAlocated import Images
 class ProfileEditor():
