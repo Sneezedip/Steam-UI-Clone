@@ -1,4 +1,4 @@
-# Steam-UI-Remaster
+# Steam-UI-Clone
 ## Clone of the Steam UI using customTkinter
 
 # Version 1.1.5
