@@ -1,5 +1,5 @@
 # Steam-UI-Remaster
-## Remaster of the Steam UI using customTkinter
+## Clone of the Steam UI using customTkinter
 
 # Version 1.1.5
  - Profile Editor Working! (only able to edit username)
