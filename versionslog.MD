@@ -1,3 +1,12 @@
+# Version 1.1.6
+ - Auto Update when saving new username (Auto updates in profile screen and TopBar)
+ - Made Profile Editor screen with more details
+ - Created StaticValues
+ - Created class EditorUtilities to save user changes and refresh them without the need of restarting the program (only useful to username)
+ - New Function ClearWidgets
+ - Fixed OnlineAlocated Function bugs (not "downloading" the image or crashing the program)
+ - Removed Unused imports
+ 
 # Version 1.1.5
  - Profile Editor Working! (only able to edit username)
  - Removed unused imports

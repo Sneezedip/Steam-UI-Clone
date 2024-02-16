@@ -12,6 +12,7 @@ import customtkinter
 from AppUtilities.WidgetCount import UsedWidgets
 from AppGraphics.OnlineAlocated import Images
 from AppWindows.ProfileEditor import ProfileEditor
+from AppUtilities.StaticValues import Static
 class Main():
     class Auto():
         Iter = 0
@@ -31,7 +32,7 @@ class Main():
         self.store.configure(fg="white" if not self.storestat.GetStatus() else "#1891e7")
         self.library.configure(fg="white" if not self.librarystat.GetStatus() else "#1891e7")
         self.community.configure(fg="white" if not self.communitystat.GetStatus() else "#1891e7")
-        self.userprofile.configure(fg="white" if not self.userprofilestat.GetStatus() else "#1891e7")   
+        Static.userprofile.configure(fg="white" if not self.userprofilestat.GetStatus() else "#1891e7")   
 
         if self.storestat.GetStatus():
             Utilities.Positions(1,self.tabhover)
@@ -81,7 +82,7 @@ class Main():
         self.store = tkinter.Label(self.root, text=Utilities.Translations("bar",5).upper(), font=bold_font, bg="#171d25", fg="white" if not self.storestat.GetStatus() else "#1891e7")
         self.library = tkinter.Label(self.root,text=Utilities.Translations("bar",6).upper(),font=bold_font,bg="#171d25",fg="white" if not self.librarystat.GetStatus() else "#1891e7")
         self.community = tkinter.Label(self.root,text=Utilities.Translations("bar",7).upper(),font=bold_font,bg="#171d25",fg="white" if not self.communitystat.GetStatus() else "#1891e7")
-        self.userprofile = tkinter.Label(self.root,text=Utilities.Info("username").upper(),font=bold_font,bg="#171d25",fg="white" if not self.userprofilestat.GetStatus() else "#1891e7")
+        Static.userprofile = tkinter.Label(self.root,text=Utilities.Info("username").upper(),font=bold_font,bg="#171d25",fg="white" if not self.userprofilestat.GetStatus() else "#1891e7")
         self.tabhover = customtkinter.CTkFrame(self.root,height=4,width=67,bg_color="#1891e7",fg_color="#1891e7")
 
         title_bar.place(x=0,y=0)
@@ -89,12 +90,12 @@ class Main():
         self.store.bind("<ButtonPress-1>",lambda event,obj="Store": self.CheckEntry(obj))
         self.library.bind("<ButtonPress-1>",lambda event, obj="Library": self.CheckEntry(obj))
         self.community.bind("<ButtonPress-1>",lambda event, obj="Community": self.CheckEntry(obj))
-        self.userprofile.bind("<ButtonPress-1>",lambda event, obj="UserProfile": self.CheckEntry(obj))
+        Static.userprofile.bind("<ButtonPress-1>",lambda event, obj="UserProfile": self.CheckEntry(obj))
 
         self.store.place(x=90,y=33)
         self.library.place(x=160,y=33) if Utilities.Info("language") == "portuguese" else self.library.place(x=185,y=33)
         self.community.place(x=295,y=33)
-        self.userprofile.place(x=445,y=33)
+        Static.userprofile.place(x=445,y=33)
 
         self.storestat.StartFrame(self.root,self.background)
 

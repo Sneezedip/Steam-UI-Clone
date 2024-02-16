@@ -1,5 +1,3 @@
-import customtkinter
-from PIL import Image
 from AppUtilities.Utilities import Utilities
 class Images():
     USEDFLAG = ""

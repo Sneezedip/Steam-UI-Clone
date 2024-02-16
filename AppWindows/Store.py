@@ -1,4 +1,3 @@
-import customtkinter
 class Store():
     def StartFrame(self,root,bg):
         bg.configure(fg_color="#171d25")

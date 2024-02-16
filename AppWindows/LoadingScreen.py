@@ -1,4 +1,4 @@
-import customtkinter,tkinter
+import customtkinter
 from AppGraphics.Graphics import Graphics
 from AppUtilities.Utilities import Utilities
 class Loading():

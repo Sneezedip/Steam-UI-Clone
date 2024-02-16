@@ -1,10 +1,7 @@
 import customtkinter
-from tkinter.font import Font
-from tkinter import Tk, Label
 from PIL import Image
-import tkinter
 from AppUtilities.Utilities import Utilities
-from AppGraphics.OnlineAlocated import Images
+from AppUtilities.StaticValues import Static
 
 class Graphics():
     def LoadIcons(root):
@@ -18,10 +15,11 @@ class Graphics():
         #user
         userphoto = customtkinter.CTkLabel(root,height=25,width=25,image=customtkinter.CTkImage(Utilities.GetImages("https://th.bing.com/th/id/OIP.MaDrjtmPQGzKiLHrHEPfFAHaHa?rs=1&pid=ImgDetMain"), size=(25, 25)),text="",bg_color="#171d25").place(x=745,y=5)
         userbackground = customtkinter.CTkFrame(root,height=25,width=120,bg_color="#272d37",fg_color="#272d37").place(x=770,y=5)
-        username = customtkinter.CTkLabel(root,text=Utilities.Info("username"),height=25,font=("Motiva Sans",12),bg_color="#272d37",text_color="#4cb3fe").place(x=775,y=5)
+        Static.username = customtkinter.CTkLabel(root,text=Utilities.Info("username"),height=25,font=("Motiva Sans",12),bg_color="#272d37",text_color="#4cb3fe")
         balance = customtkinter.CTkLabel(root,text=Utilities.Info("balance")+"$",height=25,font=("Motiva Sans",12),bg_color="#272d37",text_color="#67767e").place(x=840,y=5)
         #user
         closebutton.bind("<ButtonPress-1>",exit)
+        Static.username.place(x=775,y=5)
         closebutton.place(x=975,y=5)
     def TopBarTexts(root):
         global tabhover
