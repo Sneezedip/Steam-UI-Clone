@@ -41,6 +41,14 @@
                 {
                     "id": 2,
                     "text": "Editar Perfil"
+                },
+                {
+                    "id": 3,
+                    "text": "Nome de Perfil"
+                },
+                {
+                    "id": 4,
+                    "text": "Localização"
                 }
             ]
         }
@@ -85,6 +93,14 @@
                     {
                         "id": 2,
                         "text": "Edit Profile"
+                    },
+                    {
+                        "id": 3,
+                        "text": "Profile Name"
+                    },
+                    {
+                        "id": 4,
+                        "text": "Location"
                     }
                 ]
             }

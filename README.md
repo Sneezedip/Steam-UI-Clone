@@ -1,14 +1,13 @@
 # Steam-UI-Clone
 ## Clone of the Steam UI using customTkinter
 
-# Version 1.1.6
- - Auto Update when saving new username (Auto updates in profile screen and TopBar)
- - Made Profile Editor screen with more details
- - Created StaticValues
- - Created class EditorUtilities to save user changes and refresh them without the need of restarting the program (only useful to username)
- - New Function ClearWidgets
- - Fixed OnlineAlocated Function bugs (not "downloading" the image or crashing the program)
- - Removed Unused imports
+# Version 1.1.7
+ - New Translations
+ - New Option on Profile editor (Country Change)
+ - When Changing country, no more need to reload the program
+ - Added Description in Profile + new configuration in app.cfg (description) - (hard configuration)
+ - Changed Profile editor Label sizes
+ - Minor Changes in designs (Profile Editor and User Profile)
 
 ### for more info check *versionslog.md*
 
