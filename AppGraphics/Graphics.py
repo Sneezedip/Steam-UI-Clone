@@ -5,7 +5,7 @@ from AppUtilities.StaticValues import Static
 
 class Graphics():
     def LoadIcons(root):
-        steamicon = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/external-Steam-social-media-those-icons-lineal-color-those-icons.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=9,y=9)
+        steamicon = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/external-Steam-social-media-those-icons-lineal-color-those-icons.png"), size=(18, 18)),text="",bg_color="#171d25").grid(column=0,row=0,padx=15)
         closebutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://cdn-icons-png.flaticon.com/512/10728/10728089.png"), size=(18, 18)),text="",bg_color="#171d25")
         fullscreenbutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/external-expand-arrows-dreamstale-lineal-dreamstale-6.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=945,y=5)
         minimizebutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/ios-filled/50/737373/minus-math.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=910,y=5)
@@ -22,33 +22,34 @@ class Graphics():
         Static.username.place(x=775,y=5)
         closebutton.place(x=975,y=5)
     def TopBarTexts(root):
-        global tabhover
+        topbartexts = []
         #top bar#
         steamText = customtkinter.CTkLabel(root,text="Steam",font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
-        viewText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",1),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
-        friendsText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",2),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
-        gamesText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",3),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
-        helpText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",4),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95")
+        viewText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",1),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95");topbartexts.append(viewText)
+        friendsText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",2),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95");topbartexts.append(friendsText)
+        gamesText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",3),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95");topbartexts.append(gamesText)
+        helpText = customtkinter.CTkLabel(root,text=Utilities.Translations("bar",4),font=("Motiva Sans",13),bg_color="#171d25",text_color="#858c95");topbartexts.append(helpText)
         #top bar#
 
+        for texts in topbartexts:
+            try:
+                texts.bind("<Enter>", lambda event: ChangeEvent_Enter(event))  #Fix for -fg errors! V.1.1.8
+                texts.bind("<Leave>", lambda event: ChangeEvent_Leave(event))  #Fix for -fg errors! V.1.1.8
+            except:pass
 
-        tabhover = customtkinter.CTkFrame(root,height=4,width=67,bg_color="#272d37",fg_color="#1891e7")
-        #CONFIG HOVERING COLORS
-        viewText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
-        viewText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
-        friendsText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
-        friendsText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
-        gamesText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
-        gamesText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
-        helpText.bind("<Enter>", lambda event: event.widget.config(fg="white"))
-        helpText.bind("<Leave>", lambda event: event.widget.config(fg="#858c95"))
-        #CONFIG HOVERING COLORS
+        steamText.grid(column=1,row=0,padx=5,pady=2)
+        viewText.grid(column=2,row=0,padx=10,pady=2)
+        friendsText.grid(column=3,row=0,padx=10,pady=2)
+        gamesText.grid(column=4,row=0,padx=10,pady=2)
+        helpText.grid(column=5,row=0,padx=10,pady=2)
 
-        steamText.place(x=35,y=4)
-        viewText.place(x=100,y=4)
-        friendsText.place(x=140,y=4)
-        gamesText.place(x=200,y=4)
-        helpText.place(x=255,y=4)
+        #Fix for -fg errors! V.1.1.8
+        def ChangeEvent_Enter(event):
+            try: event.widget.config(fg="white")
+            except: pass
+        def ChangeEvent_Leave(event):
+            try: event.widget.config(fg="#858c95")
+            except: pass
     def GetLevelColor():
         level = int(Utilities.Info("level"))
         if level >= 0 and level <= 9:

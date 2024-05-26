@@ -2,7 +2,7 @@ from AppUtilities.Utilities import  Utilities
 from AppUtilities.StaticValues import Static
 from AppGraphics.OnlineAlocated import Images
 class Editor():
-    def SaveChanges(changeusername,changelocation):
+    def SaveChanges(changeusername,changelocation,changedescription):
         changes = []
         with open("AppConfig/app.cfg","r") as fileread:
             for line in fileread.readlines():
@@ -10,6 +10,8 @@ class Editor():
                     changes.append("username="+changeusername+"\n")
                 elif str(line.strip()) == "country="+Utilities.Info("country"):
                     changes.append("country="+changelocation.lower()+"\n")
+                elif str(line.strip()) == "description="+Utilities.Info("description"):
+                    changes.append("description="+changedescription.lower()+"\n")
                 else:
                     changes.append(str(line.strip()+"\n"))
         with open("AppConfig/app.cfg","w")  as file:

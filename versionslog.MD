@@ -1,3 +1,9 @@
+# Version 1.1.8
+ - Fixed ' unknown option "-fg" ' when hovering Top Texts.
+ - Changed coding for widget placement (instead of .place(), we now use .grid()).
+ - Able to change description (still not able to change lines).
+ - Removed unused Classes and variables.
+
 # Version 1.1.7
  - New Translations
  - New Option on Profile editor (Country Change)

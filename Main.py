@@ -11,7 +11,6 @@ from AppUtilities.Utilities import Utilities
 import customtkinter
 from AppUtilities.WidgetCount import UsedWidgets
 from AppGraphics.OnlineAlocated import Images
-from AppWindows.ProfileEditor import ProfileEditor
 from AppUtilities.StaticValues import Static
 class Main():
     class Auto():
@@ -22,7 +21,6 @@ class Main():
             self.librarystat = Library()
             self.communitystat = Community()
             self.userprofilestat = UserProfile(self.root)
-            self.editprofilestat = ProfileEditor(self.root)
             self.background = customtkinter.CTkFrame(self.root,height=1000,width=1000,bg_color="#171d25",fg_color="#171d25")
             self.background.place(x=0,y=0) 
             Images()     
@@ -50,7 +48,6 @@ class Main():
         self.librarystat = Library()
         self.communitystat = Community()
         self.userprofilestat = UserProfile(self.root)
-        self.editprofilestat = ProfileEditor(self.root)
         if obj == "Store":
             self.storestat.StartFrame(self.root,self.background)
         elif obj == "Library":
