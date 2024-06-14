@@ -5,17 +5,17 @@
                 "tabhover":[
                     {
                         "id":1,
-                        "width":67,
+                        "width":50,
                         "place_x":93
                     },
                     {
                         "id":2,
-                        "width":80,
+                        "width":60,
                         "place_x":188
                     },
                     {
                         "id":3,
-                        "width":115,
+                        "width":90,
                         "place_x":300
                     }
                 ]
@@ -41,6 +41,51 @@
                     }
                 ]
             }
-        ]   
+        ],
+        "win10":[
+            {
+                "topframe":[
+                    {
+                        "id":1,
+                        "place_x":90
+                    },
+                    {
+                        "id":2,
+                        "place_x":555
+                    },
+                    {
+                        "id":3,
+                        "place_x":295
+                    },
+                    {
+                        "id":4,
+                        "place_x":899
+                    }
+                ]
+            }
+        ],   
+        "win11":[
+            {
+                "topframe":[
+                    {
+                        "id":1,
+                        "place_x":90
+                    },
+                    {
+                        "id":2,
+                        "place_x":160
+                    },
+                    {
+                        "id":3,
+                        "place_x":295
+                    },
+                    {
+                        "id":4,
+                        "place_x":445
+                    }
+                ]
+            }
+        ]    
+         
     }
 }

@@ -10,14 +10,14 @@ from AppUtilities.StaticValues import Static
 class UserProfile():
     def StartFrame(self,root):
         UsedWidgets.ClearWidgets()
-        self.username.place(x=220,y=80);UsedWidgets.current.append(self.username)
+        self.username.grid(column=3,row=4,padx=30,pady=30,sticky="w",columnspan=3);UsedWidgets.current.append(self.username)
         self.userphoto.configure(height=150,width=150,image=customtkinter.CTkImage(Images.userphoto, size=(150, 150)));self.userphoto.place(x=30,y=80);UsedWidgets.current.append(self.userphoto)
         self.c.place(x=699,y=39);UsedWidgets.current.append(self.c)
         self.userlevelLabel.place(x=670,y=85);UsedWidgets.current.append(self.userlevelLabel)
         self.userlevel.place(x=745,y=85);UsedWidgets.current.append(self.userlevel)
         self.description.place(x=220,y=100);UsedWidgets.current.append(self.description)
-        self.flag.place(x=225,y=120);UsedWidgets.current.append(self.flag)
-        self.flaglabel.place(x=245,y=117);UsedWidgets.current.append(self.flaglabel)
+        self.flag.grid(column=3,row=5);UsedWidgets.current.append(self.flag)
+        # self.flaglabel.grid(column=3,row=5,padx=5);UsedWidgets.current.append(self.flaglabel)
         self.editprofileButton.place(x=670,y=200);UsedWidgets.current.append(self.editprofileButton)
 
         self.userprofileopen = True

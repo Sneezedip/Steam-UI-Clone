@@ -1,3 +1,4 @@
+import time
 import customtkinter
 from PIL import Image
 from AppUtilities.Utilities import Utilities
@@ -10,8 +11,10 @@ class Graphics():
         fullscreenbutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/external-expand-arrows-dreamstale-lineal-dreamstale-6.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=945,y=5)
         minimizebutton = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/ios-filled/50/737373/minus-math.png"), size=(18, 18)),text="",bg_color="#171d25").place(x=910,y=5)
 
-        leftarrow = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png").transpose(Image.FLIP_LEFT_RIGHT), size=(25, 25)),text="",bg_color="#171d25").place(x=10,y=35)
-        rightarrow = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png"), size=(25, 25)),text="",bg_color="#171d25").place(x=40,y=35)
+        leftarrow = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png").transpose(Image.FLIP_LEFT_RIGHT), size=(25, 25)),text="",bg_color="#171d25").grid(column=0,row=2,sticky="w")
+        rightarrow = customtkinter.CTkLabel(root,height=18,width=18,image=customtkinter.CTkImage(Utilities.GetImages("https://img.icons8.com/cotton/64/forward.png"), size=(25, 25)),text="",bg_color="#171d25").grid(column=1,row=2,ipadx=2,sticky="w")
+        # root.grid_columnconfigure(0, weight=0, minsize=1)
+        # root.grid_columnconfigure(1, weight=1, minsize=1)
         #user
         userphoto = customtkinter.CTkLabel(root,height=25,width=25,image=customtkinter.CTkImage(Utilities.GetImages("https://th.bing.com/th/id/OIP.MaDrjtmPQGzKiLHrHEPfFAHaHa?rs=1&pid=ImgDetMain"), size=(25, 25)),text="",bg_color="#171d25").place(x=745,y=5)
         userbackground = customtkinter.CTkFrame(root,height=25,width=120,bg_color="#272d37",fg_color="#272d37").place(x=770,y=5)
@@ -37,15 +40,16 @@ class Graphics():
                 texts.bind("<Leave>", lambda event: ChangeEvent_Leave(event))  #Fix for -fg errors! V.1.1.8
             except:pass
 
-        steamText.grid(column=1,row=0,padx=5,pady=2)
-        viewText.grid(column=2,row=0,padx=10,pady=2)
-        friendsText.grid(column=3,row=0,padx=10,pady=2)
-        gamesText.grid(column=4,row=0,padx=10,pady=2)
-        helpText.grid(column=5,row=0,padx=10,pady=2)
+        steamText.grid(column=1,row=0)
+        viewText.grid(column=2,row=0)
+        friendsText.grid(column=3,row=0)
+        gamesText.grid(column=4,row=0)
+        helpText.grid(column=5,row=0)
 
         #Fix for -fg errors! V.1.1.8
         def ChangeEvent_Enter(event):
-            try: event.widget.config(fg="white")
+            try:
+                event.widget.config(fg="white")
             except: pass
         def ChangeEvent_Leave(event):
             try: event.widget.config(fg="#858c95")

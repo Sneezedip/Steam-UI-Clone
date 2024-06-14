@@ -12,6 +12,7 @@ import customtkinter
 from AppUtilities.WidgetCount import UsedWidgets
 from AppGraphics.OnlineAlocated import Images
 from AppUtilities.StaticValues import Static
+from AppUtilities.Errors import Errors
 class Main():
     class Auto():
         Iter = 0
@@ -33,17 +34,17 @@ class Main():
         Static.userprofile.configure(fg="white" if not self.userprofilestat.GetStatus() else "#1891e7")   
 
         if self.storestat.GetStatus():
-            Utilities.Positions(1,self.tabhover)
+            Utilities.Positions(1,self.tabhover,2)
         elif self.librarystat.GetStatus():
-            Utilities.Positions(2,self.tabhover)
+            Utilities.Positions(2,self.tabhover,3)
         elif self.communitystat.GetStatus():
-            Utilities.Positions(3,self.tabhover)
+            Utilities.Positions(3,self.tabhover,4)
         elif self.userprofilestat.GetStatus():
-            self.tabhover.place_forget()
+            self.tabhover.grid_forget()
     def CheckEntry(self,obj,event=None):
         if len(UsedWidgets.current) >= 1:
             for widgets in UsedWidgets.current:
-                widgets.place_forget()
+                widgets.place_forget() or widgets.grid_forget()
         self.storestat = Store()
         self.librarystat = Library()
         self.communitystat = Community()
@@ -88,14 +89,16 @@ class Main():
         self.library.bind("<ButtonPress-1>",lambda event, obj="Library": self.CheckEntry(obj))
         self.community.bind("<ButtonPress-1>",lambda event, obj="Community": self.CheckEntry(obj))
         Static.userprofile.bind("<ButtonPress-1>",lambda event, obj="UserProfile": self.CheckEntry(obj))
+        # self.store.place(x=90,y=33)
+        # self.library.place(x=160,y=33) if Utilities.Info("language") == "portuguese" else self.library.place(x=185,y=33)
+        # self.community.place(x=295,y=33)
+        # Static.userprofile.place(x=445,y=33)
 
-        self.store.place(x=90,y=33)
-        self.library.place(x=160,y=33) if Utilities.Info("language") == "portuguese" else self.library.place(x=185,y=33)
-        self.community.place(x=295,y=33)
-        Static.userprofile.place(x=445,y=33)
-
+        Utilities.WinPositions(1,self.store,2)
+        Utilities.WinPositions(2,self.library,3)
+        Utilities.WinPositions(3,self.community,4)
+        Utilities.WinPositions(4,Static.userprofile,5)
         self.storestat.StartFrame(self.root,self.background)
-
         self.ClearColors()
 
     def __init__(self):

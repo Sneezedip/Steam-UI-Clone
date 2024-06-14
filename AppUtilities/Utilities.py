@@ -5,6 +5,8 @@ from PIL import Image
 from io import BytesIO
 import tkinter.messagebox as mbox
 import json
+import subprocess
+from AppUtilities.Errors import Errors
 class Utilities():
     def BottomIcon(root,hasstyle):
         GWL_EXSTYLE=-20
@@ -45,7 +47,16 @@ class Utilities():
         match section:
             case "bar": return next(item["text"] for item in bar_translations if item["id"] == id) 
             case "userprofile": return next(item["text"] for item in userprofile_translations if item["id"] == id) 
-    def Positions(id,tabhover):
+    def WinPositions(id,widget,c):
+        with open("AppConfig/pos.json" , "r") as file:
+            json_data = file.read()
+        data = json.loads(json_data)
+        positions = data["positions"][Utilities.GetWinVersion()]
+        pos = positions[0]["topframe"]
+
+        widget.grid(column=c,row=2,padx=15,pady=2)
+        
+    def Positions(id,tabhover,c):
         with open("AppConfig/pos.json" , "r") as file:
             json_data = file.read()
         data = json.loads(json_data)
@@ -53,5 +64,19 @@ class Utilities():
         pos = positions[0]["tabhover"]
 
         tabhover.configure(width = next(item["width"] for item in pos if item["id"]==id))
-        tabhover.place(x = next(item["place_x"] for item in pos if item["id"]==id),y=60)  
+        # tabhover.place(x = next(item["place_x"] for item in pos if item["id"]==id),y=60) 
+        tabhover.grid(column=c,row=3) 
+    def GetWinVersion():
+        try:
+            output = subprocess.check_output(["wmic", "os", "get", "Caption"], shell=True)
+            output = output.decode().strip().split("\n")[1].strip()
+            if "Windows 10" in output:
+                return "win10"
+            elif "Windows 11" in output:
+                return "win11"
+            else:
+                Errors.Get(1)
+        except:
+            Errors.Get(1)
+
     

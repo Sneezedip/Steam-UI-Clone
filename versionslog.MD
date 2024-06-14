@@ -1,3 +1,12 @@
+# Version 1.2.0
+ - Using grid() instead of .place() for compatibility among different windows versions.
+ - Code Optimization
+ 
+ # Known Bugs:
+    - Placement in profile is not correct
+    - flag label not shown on profile
+    - top bar frame not correct
+
 # Version 1.1.8
  - Fixed ' unknown option "-fg" ' when hovering Top Texts.
  - Changed coding for widget placement (instead of .place(), we now use .grid()).

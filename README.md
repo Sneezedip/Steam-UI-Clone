@@ -1,11 +1,14 @@
 # Steam-UI-Clone
 ## Clone of the Steam UI using customTkinter
 
-# Version 1.1.8
- - Fixed ' unknown option "-fg" ' when hovering Top Texts.
- - Changed coding for widget placement (instead of .place(), we now use .grid()).
- - Able to change description (still not able to change lines).
- - Removed unused Classes and variables.
+# Version 1.2.0
+ - Using grid() instead of .place() for compatibility among different windows versions.
+ - Code Optimization
+ 
+ # Known Bugs:
+    - Placement in profile is not correct
+    - flag label not shown on profile
+    - top bar frame not correct
 
 ### for more info check *versionslog.md*
 

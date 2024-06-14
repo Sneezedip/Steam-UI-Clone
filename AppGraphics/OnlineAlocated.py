@@ -13,12 +13,12 @@ class Images():
             case "finland": uf = Utilities.GetImages("https://img.icons8.com/office/16/finland.png")
             case "germany": uf = Utilities.GetImages("https://img.icons8.com/office/16/germany.png")
             case "france": uf = Utilities.GetImages("https://img.icons8.com/office/16/france.png")
-            case "croatia": uf = Utilities.GetImages("https://img.icons8.com/office/16/croatia.png");
-            case "albania": uf = Utilities.GetImages("https://img.icons8.com/office/16/albania.png");
-            case "malta": uf = Utilities.GetImages("https://img.icons8.com/office/16/malta.png");
+            case "croatia": uf = Utilities.GetImages("https://img.icons8.com/office/16/croatia.png")
+            case "albania": uf = Utilities.GetImages("https://img.icons8.com/office/16/albania.png")
+            case "malta": uf = Utilities.GetImages("https://img.icons8.com/office/16/malta.png")
             case "china": uf = Utilities.GetImages("https://img.icons8.com/office/16/china.png")
             case "japan": uf = Utilities.GetImages("https://img.icons8.com/office/16/japan.png")
-            case "ukraine": uf = Utilities.GetImages("https://img.icons8.com/office/16/ukraine.png");
+            case "ukraine": uf = Utilities.GetImages("https://img.icons8.com/office/16/ukraine.png")
             case "belgium": uf = Utilities.GetImages("https://img.icons8.com/office/16/belgium.png")
             case "jamaica": uf = Utilities.GetImages("https://img.icons8.com/office/16/jamaica.png")
         return uf
