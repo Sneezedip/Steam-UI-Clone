@@ -2,8 +2,8 @@
 ## Clone of the Steam UI using customTkinter
 
 # Version 1.2.0
- - Using grid() instead of .place() for compatibility among different windows versions.
- - Code Optimization
+    - Using grid() instead of .place() for compatibility among different windows versions.
+    - Code Optimization
  
  # Known Bugs:
     - Placement in profile is not correct
